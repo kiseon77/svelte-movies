@@ -1,0 +1,48 @@
+<script>
+  export let handleEvent;
+  import { fade } from "svelte/transition";
+</script>
+
+<div class="event show" out:fade>
+  <p>NETPLIX 강렬한 운명의 드라마, 경기크리쳐</p>
+  <button on:click={handleEvent}>X</button>
+</div>
+
+<style>
+  .event {
+    width: 100%;
+    background: #666;
+    padding: 5px 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 10px 20px;
+
+    /* 창이 보이지 않게 */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+
+  /* 기본: 창이 보이게 */
+  .show {
+    opacity: 1;
+    max-height: 100px;
+  }
+
+  .event button {
+    padding: 2px;
+  }
+
+  .event p,
+  .event button {
+    margin: 0;
+  }
+  .event p {
+    width: 100%;
+  }
+</style>
